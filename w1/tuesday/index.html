@@ -37,12 +37,17 @@
     <!-- also has some inline styling to show the difference in block elements -->
     <p style="display:block;" class="classExample_red"></p>
 
-    <!-- this paragraph tag also has some inline styling to show the difference in inline elements;
+    <!-- this paragraph tag has some inline styling to show the difference in inline elements;
      it also contains layered classes to demonstrate the effect of layering CSS selectors on top of eachother.
      i noticed <span>s horizontally shrink themseves to their content - very cool! twitch chat is made up of spans for this reason, i believe.-->
     <span style="display:inline;" class="layeredClassExampleBorder classExampleRed">this aggressive block has the
-        classExampleRed and layeredClassExampleBorder classes layered on top of one another. if you shrink the page, this span will wrap over the top of itself since the line height of this element isn't set to account for the padding.</span>
-        <span style="display:inline;line-height:2.1;" class="layeredClassExampleBorder">this one, however, does not have the red class, and has a line height set to account for the extra padding so that it dosen't overlap itself when it wraps across the page.</span>
+        classExampleRed and layeredClassExampleBorder classes layered on top of one another. if you shrink the page,
+        this span will wrap over the top of itself since the line height of this element isn't set to account for the
+        padding.</span>
+    <span style="display:inline;line-height:2.1;" class="layeredClassExampleBorder">this one, however, does not have the
+        red class, and has a line height set to account for the extra padding so that it dosen't overlap itself when it
+        wraps across the page.</span>
+
 </body>
 
 </html>
