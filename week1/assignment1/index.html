@@ -3,6 +3,12 @@
 
 <head>
     <style>
+        /* general foreground font color */
+        * p,
+        * span {
+            color: #f3d0ae
+        }
+
         #IDExample {
             /* values and colors from https://cssgradient.io/ because i was not feeling creative */
             background: radial-gradient(circle, rgba(237, 221, 83, 1) 0%,
@@ -23,19 +29,27 @@
             /*css builtin size shortcut*/
             font-size: large;
         }
+
+        table * {
+            padding: 3px;
+            border-style: inherit;
+            border-radius: inherit;
+            color: inherit;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week 1 index.htm</title>
 </head>
 
-<body style="background-color:#B0A090;"> <!-- Easy on the eyes, I suppose -->
+<body style="background-color:#704d2b;"> <!-- Easy on the eyes, I suppose -->
     <p>Hello! this is my index with some minimal Embedded and Inline css</p>
     <p id="IDExample">this element would be unique, making it easy to use in relative navigation like <a
             href="#IDExample">this</a>; <br />it also uses a radial gradient in its background</p>
 
     <!-- also has some inline styling to show the difference in block elements -->
-    <p style="display:block;" class="classExample_red"></p>
+    <p style="display:block;" class="classExampleRed">this only has the classExampleRed class, and lacks a border or
+        additional spacing properties.</p>
 
     <!-- this paragraph tag has some inline styling to show the difference in inline elements;
      it also contains layered classes to demonstrate the effect of layering CSS selectors on top of eachother.
@@ -47,6 +61,24 @@
     <span style="display:inline;line-height:2.1;" class="layeredClassExampleBorder">this one, however, does not have the
         red class, and has a line height set to account for the extra padding so that it dosen't overlap itself when it
         wraps across the page.</span>
+    <div>
+        <table class="layeredClassExampleBorder" style="border-color:#aabaca;color:#aabaca">
+            <!-- table title here? -->
+            <span style="border-style:solid;padding:5px;width:100%">Example table</span>
+            <tr>
+                <td>row 1, item 1</td>
+                <td>row 1, item 2</td>
+            </tr>
+            <tr>
+                <td>single item in this row</td>
+            </tr>
+            <tr>
+                <td>...</td>
+                <td>...</td>
+                <td>row 3, item 3</td>
+            </tr>
+        </table>
+    </div>
 
 </body>
 
