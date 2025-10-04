@@ -4,25 +4,37 @@
 <head>
     <style>
         /* general foreground font color */
-        * p,
-        * span {
-            color: #f3d0ae
+        h1,
+        h2,ul {
+            color: #daa66b;
+            text-decoration: underline;
         }
 
+        * p,
+        * span,
+        h2,
+        h3,
+        h4, li {
+            color: #f3d0ae
+        }
+        li {
+            font-size:15pt;
+        }
         #IDExample {
             /* values and colors from https://cssgradient.io/ because i was not feeling creative */
-            background: radial-gradient(circle, rgba(237, 221, 83, 1) 0%,
-                    rgba(42, 123, 155, 1) 100%);
+            background: radial-gradient(circle, rgb(237, 175, 83) 0%,
+                    rgb(90, 84, 116) 100%);
             color: #012345;
             /* suprisingly nice color*/
         }
 
         .classExampleRed {
-            background-color: red;
-            color: #543210;
+            background-color: rgb(226, 57, 86);
+            color: #77013c;
         }
 
         .layeredClassExampleBorder {
+            font-family:sans-serif;
             padding: 5px;
             border-style: solid;
             border-radius: 6px;
@@ -30,56 +42,89 @@
             font-size: large;
         }
 
-        table * {
+        table,
+        table *,
+        table * *,
+        td table {
+            overflow: visible;
             padding: 3px;
+            margin: 5px;
             border-style: inherit;
             border-radius: inherit;
             color: inherit;
         }
+
+        td {
+            width: 400px;
+            height: 200px;
+        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Week 1 index.htm</title>
+    <title>Week 1 Landing page</title>
 </head>
 
-<body style="background-color:#704d2b;"> <!-- Easy on the eyes, I suppose -->
-    <p>Hello! this is my index with some minimal Embedded and Inline css</p>
-    <p id="IDExample">this element would be unique, making it easy to use in relative navigation like <a
-            href="#IDExample">this</a>; <br />it also uses a radial gradient in its background</p>
+<body style="background-color:#2a323f;"> <!-- Easy on the eyes, I suppose -->
+    <h1>Week 1, Assignment 1</h1>
+    <section>
+        <h2>p & span tags, classes examples</h2>
+        <p>Hello! this is my index with some minimal Embedded and Inline css</p>
+        <p id="IDExample">this element would be unique, making it easy to use in relative navigation like <a
+                href="#IDExample">this</a>; <br />it also uses a radial gradient in its background</p>
 
-    <!-- also has some inline styling to show the difference in block elements -->
-    <p style="display:block;" class="classExampleRed">this only has the classExampleRed class, and lacks a border or
-        additional spacing properties.</p>
+        <!-- also has some inline styling to show the difference in block elements -->
+        <p style="display:block;" class="classExampleRed">this only has the classExampleRed class, and lacks a border or
+            additional spacing properties.</p>
 
-    <!-- this paragraph tag has some inline styling to show the difference in inline elements;
+        <!-- this paragraph tag has some inline styling to show the difference in inline elements;
      it also contains layered classes to demonstrate the effect of layering CSS selectors on top of eachother.
      i noticed <span>s horizontally shrink themseves to their content - very cool! twitch chat is made up of spans for this reason, i believe.-->
-    <span style="display:inline;" class="layeredClassExampleBorder classExampleRed">this aggressive block has the
-        classExampleRed and layeredClassExampleBorder classes layered on top of one another. if you shrink the page,
-        this span will wrap over the top of itself since the line height of this element isn't set to account for the
-        padding.</span>
-    <span style="display:inline;line-height:2.1;" class="layeredClassExampleBorder">this one, however, does not have the
-        red class, and has a line height set to account for the extra padding so that it dosen't overlap itself when it
-        wraps across the page.</span>
-    <div>
-        <table class="layeredClassExampleBorder" style="border-color:#aabaca;color:#aabaca">
-            <!-- table title here? -->
-            <span style="border-style:solid;padding:5px;width:100%">Example table</span>
-            <tr>
-                <td>row 1, item 1</td>
-                <td>row 1, item 2</td>
-            </tr>
-            <tr>
-                <td>single item in this row</td>
-            </tr>
-            <tr>
-                <td>...</td>
-                <td>...</td>
-                <td>row 3, item 3</td>
-            </tr>
-        </table>
-    </div>
-
+        <span style="display:inline;" class="layeredClassExampleBorder classExampleRed">this aggressive block has the
+            classExampleRed and layeredClassExampleBorder classes layered on top of one another. if you shrink the page,
+            this span will wrap over the top of itself since the line height of this element isn't set to account for
+            the
+            padding.</span>
+        <span style="display:inline;line-height:2.1;" class="layeredClassExampleBorder">this one, however, does not have
+            the
+            red class, and has a line height set to account for the extra padding so that it dosen't overlap itself when
+            it
+            wraps across the page.</span>
+    </section>
+    <section>
+        <h2>div, list, and table examples</h2>
+        <div style="padding:10px;">
+            <!-- unordered list example -->
+             <h3>List Example</h3>
+            <ul>
+                <li>this is an example of an unordered list</li>
+                <li>all of these remaining tags are inside a div with some padding styling set</li>
+                <li>the table below has a nested cell and some inline border modifications</li>
+            </ul>
+            <!-- TABLE EXAMPLE -->
+            <h3><span style="border-style:solid;padding:5px;width:100%">Example table</span></h3>
+            <table class="layeredClassExampleBorder" style="border-color:#5f915a;color:#daa66b">
+                <tr>
+                    <td>row 1, item 1</td>
+                    <td>row 1, item 2</td>
+                </tr>
+                <tr>
+                    <td>single item in this row</td>
+                </tr>
+                <tr>
+                    <td>...</td>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>fancy table</td>
+                                <td>inside a table</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>row 3, item 3</td>
+                </tr>
+            </table>
+        </div>
+    </section>
 </body>
 
 </html>
