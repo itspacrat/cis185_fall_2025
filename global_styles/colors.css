@@ -1,0 +1,7 @@
+:root {
+    --content-card-bg:linear-gradient(-30deg, rgb(123, 101, 129), rgb(153, 125, 99));
+    --card-text:#fff6d9;
+    --card-text-hovered:#ffe9b6;
+    --anchor-text:#7ff1c6;
+    --page-bg:linear-gradient(67deg, rgb(168, 152, 117), rgb(155, 121, 135));
+}
