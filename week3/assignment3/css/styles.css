@@ -1,0 +1,26 @@
+/* put the "cascading" in CSS */
+:root {
+    /* radius on the boxes in the main container */
+    --col-item-radius:20px;
+    --item-content-padding:18px;
+}
+
+body, body * {
+    /* what even is left or right alignment anymore?? :/ */
+    text-align: center;
+    /* override padding  to make it less squished*/
+    padding:var(--item-content-padding);
+}
+
+/* all images */
+img {
+    /* clamp to width of parent */
+    max-width:100%;
+    /* pepper in a little padding math for fancies */ 
+    border-radius: calc(var(--col-item-radius) + var(--item-content-padding));
+}
+
+div {
+    border: solid 0px rgba(0,0,0,0);
+    border-radius:var(--col-item-radius);
+}
