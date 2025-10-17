@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 3: Manual responsive Example</title>
-    <!-- stg. 2 import the css local to css/ subdirectory -->
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <!-- stg. 2 import the css from the previous responsive portfolio -->
+    <link rel="stylesheet" type="text/css" href="../../week2-assignment2/css/styles.css">
     <!-- stg. 3 import global color overrides -->
     <link rel="stylesheet" type="text/css" href="../../global_styles/colors.css">
     <style>
@@ -34,51 +34,44 @@
 
 <body>
 
-    <div class="container">
-        <div class="row gx-5">
-            <div class="col-4">
-                This is my more organic portfolio, built manually to be responsive, with grid! I've strewn a few content cards throughout
-                this page and added some flavor, relative to my last portfolio example.
-            </div>
-            <div class="col-4 textContent">
-                I have helped release a<a href="">couple of games</a>in my time, and love designing game systems, from
-                tabletop-style rpgs to 2D survival sandboxes.
-            </div>
-            <div class="col-4">
-                I also have written a few discord bots, with my latest being <a
-                    href="https://github.com/itspacrat/giflias">giflias</a> on github. I love
-                bridging the gap
-                between messaging platforms and game systems, and always aim to write software that facilitates natural
-                interaction.
-            </div>
+    <div class="responsiveGridParent">
+        <div class="infoBlock">
+            This is my more organic portfolio, built manually to be responsive, with grid! I've strewn a few content
+            cards throughout
+            this page and added some flavor, relative to my last portfolio example.
         </div>
-        <div class="row">
-            <div class="col-8 textContent">
-                <p>I've been studying computer science and its adjacent fields since 2017, but have had a genreal
-                    compassion for working on computers since I was very little!</p>
-                <p>Using the computer as a creative medium has given me a nearly endless hobby, and I am excited more
-                    every day to learn new interface or systems design concepts and experiment with them.</p>
-            </div>
-            <div class="col-4"> little bit on the right side</div>
+        <div class="infoBlock">
+            I have helped release a<a href="">couple of games</a>in my time, and love designing game systems, from
+            tabletop-style rpgs to 2D survival sandboxes.
         </div>
-        <div class="row">
-            <div class="col-4">the bootstrap version of this portfolio is <a href="index.html">here</a>.</div>
-            <div class="col-3 textContent">Bootstrap made the construction of this page nearly seamless, and was
-                incredibly easy. I've used 2 blank columns to add a gap in this row with ease!</div>
-            <div class="col-1">
+        <div class="infoBlock">
+            I also have written a few discord bots, with my latest being <a
+                href="https://github.com/itspacrat/giflias">giflias</a> on github. I love
+            bridging the gap
+            between messaging platforms and game systems, and always aim to write software that facilitates natural
+            interaction.
+        </div>
+        <div class="infoBlock">
+            <p>I've been studying computer science and its adjacent fields since 2017, but have had a genreal
+                compassion for working on computers since I was very little!</p>
+            <p>Using the computer as a creative medium has given me a nearly endless hobby, and I am excited more
+                every day to learn new interface or systems design concepts and experiment with them.</p>
+        </div>
+        <div class="infoBlock"> little bit on the right side</div>
 
-            </div>
-            <div class="col-4 textContent" style="border:solid 50px rgba(218, 68, 255, 0.103);padding:5px;">
-                <p>This is my linkedin profile picture! I made the border on this box look like plaid on accident, but I
-                    kinda dig it!</p>
-                <img src="images/linkedin.jpg" alt="Blake's linkedin profile photo circa 2021">
-            </div>
+        <div class="infoBlock">the bootstrap version of this portfolio is <a href="index.html">here</a>.</div>
+        <div class="infoBlock">Bootstrap made the construction of this page nearly seamless, and was
+            incredibly easy. I've used 2 blank columns to add a gap in this row with ease!</div>
+        <div class="infoBlock" style="border:solid 50px rgba(218, 68, 255, 0.103);padding:5px;">
+            <p>This is my linkedin profile picture! I made the border on this box look like plaid on accident, but I
+                kinda dig it!</p>
+            <img src="images/linkedin.jpg" alt="Blake's linkedin profile photo circa 2021">
         </div>
-        <div class="row">
-            <div class="col-12 textContent" style="text-align:center;">I should probably fill this bottom section out
-                with footer info or some sort of copyright notice. oh well.<br><i>Imitation is flattery, to whoever
-                    wonders if
-                    they should steal this look and feel.</i></div>
+
+        <div class="infoBlock" style="text-align:center;">I should probably fill this bottom section out
+            with footer info or some sort of copyright notice. oh well.<br><i>Imitation is flattery, to whoever
+                wonders if
+                they should steal this look and feel.</i>
         </div>
     </div>
 
