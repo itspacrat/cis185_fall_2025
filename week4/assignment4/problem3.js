@@ -62,8 +62,9 @@ function curveGrades(scores, curveAmount) {
 
 }
 
-// use this list as our inout 
-let listOfScores = [80., 50., 33., 21., 73., 100., 23., 100., 98., 95., 30.]; // make sure all behave like floats
+/* DEBUG ZONE */
+// use this list as our inout
+//let listOfScores = [80., 50., 33., 21., 73., 100., 23., 100., 98., 95., 30.]; // make sure all behave like floats
 
 // console.log(calculateAverage(listOfScores)); // debug, works
 
