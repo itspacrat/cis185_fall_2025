@@ -3,7 +3,21 @@ function calculateAverage(scores) {
     // Handle empty array case (return 0)
 
     // look for error
-    
+
+    let scoresAvg = 0
+    if (scores.length > 0) {
+        for (i = 0; i < scores.length; i++) {
+            // initially, let scoresAvg store the sum
+            // of all grades
+            scoresAvg += scores[i];
+        }
+        // then use clever single divide-assign for
+        // average calculation!
+        scoresAvg /= scores.length
+    }
+
+    return scoresAvg;
+
 }
 
 function dropLowestScore(scores) {
@@ -21,3 +35,5 @@ function curveGrades(scores, curveAmount) {
     // Cap all scores at 100 (no score above 100)
     // Return new array, don't modify original
 }
+
+console.log(calculateAverage([100, 50, 65])); // debug, works
