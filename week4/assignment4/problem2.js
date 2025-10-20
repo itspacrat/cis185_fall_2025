@@ -1,23 +1,35 @@
 function countLeaves(days) {
-    // Each day, leaves fall following this pattern:
-    // Day 1: 10 leaves
-    // Day 2: 20 leaves (doubles)
-    // Day 3: 30 leaves (+10 from day 2)
-    // Day 4: 40 leaves (+10 from day 3)
-    // Pattern: First day doubles, then +10 each day
-    
+
     let total = 0;
-    // Use a for loop to calculate total
-    
+
+    if (days <= 0) {
+        // no leaves have fallen yet
+        total = 0;
+    } else {
+        // initial offset + 10x each day,
+        // minus the first day
+        total = 10 + (10 * (days - 1))
+    }
+
     return total;
 }
 
 function categorizeLeafColors(leaves) {
-    // leaves is an array of color strings
-    // Count each color and return an object
-    
-    let colorCount = {};
-    // Loop through array and count colors
-    
+
+    let colorCount = {}; // will be a KVP structure
+
+    for (i = 0; i < leaves.length; i += 1) { // instead of i++ for fun
+        if (leaves[i] in colorCount) {
+            colorCount[leaves[i]] += 1
+        } else {
+            colorCount[leaves[i]] = 1
+        }
+    }
+
     return colorCount;
 }
+
+// console.log(countLeaves(4)); // debug, works
+
+// let leafcolors = ["red", "yellow", "brown", "green", "yellow", "brown", "red", "orange", "chartreuse", "orange", "yellow", "red", "brown"];
+// console.log(categorizeLeafColors(leafcolors)); // debug, works
