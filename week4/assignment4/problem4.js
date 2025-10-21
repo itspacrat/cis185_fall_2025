@@ -1,11 +1,4 @@
 function createPyramid(height) {
-    // Build a centered pyramid of asterisks (*)
-    // Example: height = 4 →
-    //    *
-    //   ***
-    //  *****
-    // *******
-    // Return as a string with \n between lines
 
     let pyr = "";
 
@@ -50,7 +43,10 @@ function createCheckerboard(size) {
     // store an empty board to modify
     // with our even-odd checks
     let checkerboard = "";
-
+    if (!(size > 0)) {
+        // no board
+        return "";
+    }
     for (row = 0; row < size; row++) {
 
         for (col = 0; col < size; col++) {
@@ -77,4 +73,4 @@ function createCheckerboard(size) {
 
 // console.log(createCheckerboard(5));
 //console.log(createNumberStaircase(7));
-console.log(createPyramid(5));
+//console.log(createPyramid(5));
