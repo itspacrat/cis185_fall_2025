@@ -6,9 +6,27 @@ function createPyramid(height) {
     //  *****
     // *******
     // Return as a string with \n between lines
-    for (i = 0; i < height; i++) {
 
+    let pyr = "";
+
+    /**
+     * This uses a marching approach, rather than
+     * cutting down a max-width string.
+     */
+
+    for (i = 0; i < height; i++) {
+        // dynamically add spaces to each layer "i"
+        for (spaces = 0; spaces < (height - (1 + i)); spaces++) {
+            pyr += " ";
+        }
+        // dynamically add asterisks to each layer "i"
+        for (stars = 0; stars < (1 + (2 * i)); stars++) {
+            pyr += "*";
+        }
+        pyr += "\n"
     }
+
+    return pyr;
 }
 
 function createNumberStaircase(steps) {
@@ -57,5 +75,6 @@ function createCheckerboard(size) {
     return checkerboard;
 }
 
-console.log(createCheckerboard(5));
-//console.log(createNumberStaircase(60));
+// console.log(createCheckerboard(5));
+//console.log(createNumberStaircase(7));
+console.log(createPyramid(5));
