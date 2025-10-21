@@ -44,6 +44,7 @@ function createCheckerboard(size) {
         if (i > 0 && i % (size) == 0) {
             checkerboard += "\n";
         }
+        // todo only works on odd sizes, fix to be both
     }
     return checkerboard;
 }
