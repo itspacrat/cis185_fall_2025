@@ -33,23 +33,29 @@ function createCheckerboard(size) {
     // with our even-odd checks
     let checkerboard = "";
 
-    // Square the size to fit the whole board
-    for (i = 1; i < size * size + 1; i++) {
-        for (j = 0; i < size + 1; j++) {
-            if (i % 2 == 0 && j % 2 == 0) {
+    for (row = 0; row < size; row++) {
+
+        for (col = 0; col < size; col++) {
+
+            /* we can get the position at [row][col] 
+            with simple addition */
+            if ((row + col) % 2 == 0) {
+
+                /* if this "position" is even along
+                both the row and column, use O */
                 checkerboard += "O";
+
             } else {
                 checkerboard += "X";
             }
+
+
         }
-        // check if we break the line here as well
-        if (i > 0 && i % (size) == 0) {
-            checkerboard += "\n";
-        }
-        // todo only works on odd sizes, fix to be both
+        checkerboard += "\n"; // newline after every row 
     }
+
     return checkerboard;
 }
 
-//console.log(createCheckerboard(7));
+console.log(createCheckerboard(5));
 //console.log(createNumberStaircase(60));
