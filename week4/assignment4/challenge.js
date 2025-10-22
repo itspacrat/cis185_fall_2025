@@ -1,13 +1,21 @@
 function decimalToBinary(decimal) {
-    let out = ""
 
-    while (Math.floor(decimal / 2) != 0) {
-        out = out + (decimal % 2);
-        decimal = Math.floor(decimal / 2);
+    let binStr = ""
+
+    if (decimal == 0) {
+        binStr = "0" // handle base case 
+        return binStr;
     }
-    return out;
+
+    while (decimal > 0) {
+        let bit = decimal % 2;
+        binStr += bit;
+        Math.floor(decimal /= 2);
+    }
+
+    return binStr.split('').reverse().join('');
 }
 
 
-// console.log(decimalToBinary(1.));
+console.log(decimalToBinary(1.));
 // BROKEN, did not finish in time :((
