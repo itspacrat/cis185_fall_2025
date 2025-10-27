@@ -9,13 +9,12 @@ function decimalToBinary(decimal) {
 
     while (decimal > 0) {
         let bit = decimal % 2;
-        binStr += bit;
-        Math.floor(decimal /= 2);
+        binStr = bit + binStr; // append but leftwards...
+        decimal = Math.floor(decimal / 2);
     }
 
-    return binStr.split('').reverse().join('');
+    return binStr;
 }
 
 
-console.log(decimalToBinary(1.));
-// BROKEN, did not finish in time :((
+// console.log(decimalToBinary(5.)); // debug, works
