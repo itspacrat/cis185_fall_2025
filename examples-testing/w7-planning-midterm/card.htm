@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>example card</title>
+    <style>
+        body {
+            background-color: #383838;
+        }
+
+        p,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        div,
+        a {
+            color: #d1cfb0;
+
+        }
+
+        p {
+            font-size: 14pt;
+            font-weight: bold;
+            position: relative;
+        }
+
+        div {
+            scrollbar-color: #b9a369;
+            scrollbar-track-color: #443723;
+        }
+
+        ::-webkit-scrollbar {
+            background-color: #443723;
+            width: 3px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #b9a369;
+        }
+
+        .card {
+            overflow: hidden;
+            border-radius: 30px;
+            width: 500px;
+            background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3d/Melogale_moschata_%28male%29_Praha_zoo_02.2011_01.jpg");
+        }
+
+        .cardContent {
+            text-align: center;
+            text-shadow: 5px 4px 4px black;
+            outline: black 2px;
+            height: 500px;
+            background: linear-gradient(rgba(0, 0, 0, 0), rgba(46, 36, 25, 0.925) 230px, rgb(46, 36, 25) 50%);
+        }
+
+        .scrollable-box {
+            padding: 7px;
+            position: relative;
+            display: inline-block;
+            top: 210px;
+            width: 200px;
+            height: 200px;
+            overflow: auto;
+        }
+
+        .left {
+            direction: ltr;
+        }
+
+        .right {}
+    </style>
+</head>
+
+<body>
+    <div class="card">
+
+        <div class="cardContent">
+            <div>
+                <p style="top:180px;">ferret badger</p>
+            </div>
+
+            <div class="scrollable-box left">
+                <p>this should be a scrolalble box with content</p>
+                <p>in here we have content 1: content 2: content 3: etc. ...</p>
+                <p>
+                    another paragraph thing here
+                </p>
+                <p> this is another pargraph</p>
+            </div>
+            <div class="scrollable-box">
+                <p>this is the right side</p>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
