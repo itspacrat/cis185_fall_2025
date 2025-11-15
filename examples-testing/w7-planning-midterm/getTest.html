@@ -24,10 +24,10 @@
 
         // set these badboys up
         const headers = new Headers();
-        headers.append("User-Aggent", "WikiCards/0.1 (+https://example.org/MyCoolTool/; blakemichaelgaynor@gmail.com)");
-        headres.apend("Origin", "*");
-        // letthe api know we're only reading information
-        headers.append("Promise-Non-Write-API-Action", "true");
+        // be polite and adda  user agent so Mediawiki aren't suspicious of our
+        // requests to the api
+        headers.append("User-Agent", "WikiCards/0.1 (+https://github.com/itspacrat/cis185_fall_2025/tree/main/MidtermProject; blakemichaelgaynor@gmail.com)");
+
         try {
             let response = await fetch(url, { method: 'GET', headers: headers });
             let data = await response.json();
@@ -38,7 +38,7 @@
         }
     }
 
-    let imgLink = getData("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ferret-badger&formatversion=2&prop=pageimages&piprop=thumbnail&pithumbsize=500");
+    let imgLink = getData("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ferret-badger&formatversion=2&prop=pageimages&piprop=thumbnail&pithumbsize=500&origin=*");
     console.log(imgLink);
 </script>
 
