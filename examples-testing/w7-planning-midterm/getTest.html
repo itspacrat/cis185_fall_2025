@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <img id="changethis" src="">
+</body>
+
+<!-- js zone -->
+<script>
+    /*
+        -- USEFUL  STUFF --
+        FIRST+FOREMOST; api ettiquite (MediaWiki):
+            https://www.mediawiki.org/wiki/API:Etiquette
+        headers (MDN):
+            https://developer.mozilla.org/en-US/docs/Web/API/Request/headers
+    */
+    async function getData(url) {
+
+        // set these badboys up
+        const headers = new Headers();
+        headers.append("User-Aggent", "WikiCards/0.1 (+https://example.org/MyCoolTool/; blakemichaelgaynor@gmail.com)");
+        headres.apend("Origin", "*");
+        // letthe api know we're only reading information
+        headers.append("Promise-Non-Write-API-Action", "true");
+        try {
+            let response = await fetch(url, { method: 'GET', headers: headers });
+            let data = await response.json();
+            console.log(data);
+            return data;
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    let imgLink = getData("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ferret-badger&formatversion=2&prop=pageimages&piprop=thumbnail&pithumbsize=500");
+    console.log(imgLink);
+</script>
+
+</html>
