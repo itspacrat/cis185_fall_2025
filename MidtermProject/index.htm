@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="icon" href="media/WikiCardsIcon-transparent.ico">
+    <title>WikiCards Example Explorer</title>
+
+
+</head>
+
+<body>
+    <img id="changeThis">
+</body>
+<!-- script from project dir w/ function(s) defined-->
+<script src="scripts/page.js"></script>
+<!-- inline script -->
+<script>
+    /*
+    pretty much everything needs to be executed in the below scope, 
+    as far as i can tell at least; you can't execute async code
+    in a synchronous scope, which is what this <script> tag 
+    initially uses
+    */
+    (async function () { // allow async execution
+
+        let thumbResponse = await getData("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ferret-badger&formatversion=2&prop=pageimages&piprop=thumbnail&pithumbsize=500&origin=*");
+
+        console.log(thumbResponse);
+        console.log(thumbResponse.query);
+        console.log(thumbResponse.query.pages["0"].thumbnail.source);
+
+        document.getElementById("changeThis").src = thumbResponse.query.pages["0"].thumbnail.source;
+
+    })();
+
+</script>
+
+</html>
