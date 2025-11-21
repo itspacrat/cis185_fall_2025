@@ -56,5 +56,8 @@ This project serves as a fun way to look at surface-level details of wikipedia p
 **MediaWiki API**
 - [Etiquitte](https://www.mediawiki.org/wiki/API:Etiquette)
 
+**jsdoc\.app**
+- [js Documentation Comments](https://jsdoc.app/about-getting-started)
+
 **doc\.rust-lang\.org**
 - [`Future<>`, `async`, and `await`](https://doc.rust-lang.org/book/ch17-01-futures-and-syntax.html)
