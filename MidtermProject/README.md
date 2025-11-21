@@ -1,5 +1,6 @@
-# WikiCards example Wikipedia API explorer
+<p align="center"><img src="media/WikiCardsIcon-transparent.PNG" alt="an enlarged, mildly off-center, transparent icon by made in roughly 7 minutes by Blake"></p>
 
+#  WikiCards example Wikipedia API explorer
 ## About
 This project serves as a fun way to look at surface-level details of wikipedia pages for animals.
 
@@ -23,21 +24,36 @@ This project serves as a fun way to look at surface-level details of wikipedia p
 ### techniques / technologies:
 - Hosting a local web server with `npx serve`
 - Utilizing API access with javascript's `fetch()`
+- <u>Understanding why certain js documentation was written the way it was</u>
+- manipulating the DOM with js functions
+- Organizing scripts into units with specific goals for each 
 ### Frusturations & errors I overcame
 *Don't try to know everything, because no one truly can.*<br>- Blake, a million different times probably.
+- **Dealing with Promise<any> types**
+  - By virtue of using functions like `fetch()`, `Promise<>` Objects are everywhere in my code
+  - I've dealt with a similar type in the Rust programming language, called <u>[`Future<>`](#referenced-materials)</u>, which uses virtually identical syntax in its code; Rust, like javascript, requires that `async` functions  only be called inside `async` blocks/functions, and these need to be `await`-ed to successfully use the value in the `Future<>` type.
+  - I google searched until I ended up on the <u>[MDN page for IIFEs in js](#referenced-materials)</u>, and used their async IIFE example in my code, which fixed my issue.
+<br>
 - **CORS requests not completing / being rejected**
-  > I took time to read helpful articles and documentation online after about 2 hours of pulling my hair out because of failed CORS requests. Once you begin playing with APIs and start  accessing external resources, it's nearly *required* that you host your site via a local server!
+  - I took time to read helpful articles and documentation online after about 2 hours of pulling my hair out because of failed CORS requests. Once you begin playing with APIs and start  accessing external resources, it's nearly *required* that you host your site via a local server!
+<br>
 - **Lack of type annotations making things like attribute changes feel harder or uncertain**
-  > When trying to change attributes of updated HTML elements (i.e. the `src` attribute in an `img` element), it felt hard to know code was going to execute properly, or that the errors I recieved were going to be helpful; I took an opportunity here to recognize that this may very well just be a shortcoming of javascript as a whole, and instead of worrying more about the things I missed in javascript, I decided to focus on learning how the ES/js documentation was structured, and how to debug errors more effectively.
+  - When trying to change attributes of updated HTML elements (i.e. the `src` attribute in an `img` element), it felt hard to know code was going to execute properly, or that the errors I recieved were going to be helpful
+  - I took an opportunity here to recognize that this may very well just be a shortcoming of javascript as a whole, and instead of worrying more about the things I missed in javascript, I decided to focus on learning how the ES/js documentation was structured, and how to debug errors more effectively.
+<br>
 - **Project scope was too ambitious at the beginning**
-  > I realized after fiddling with my API access code for a while that I had to narrow this project from a game-focused idea I had down to a page explorer; gertting honest with myself about the scope of the project early on was probably the best decision I made during the development of this site altogether.
-
-<sub>in a nutshell: You can still be effective with a language, even if it feels barebones/ancient/lacking in forethought; you just need to be good at understanding the "why" behind how parts of the language work, and that takes dedication to reading documentation; becoming  great at this skill ultimately leads to a workflow that dosen't require you to read the documentation as much, because you will quickly learn how to work alongside whatever programming language (or spoken language for that matter) you are using.</sub>
+  - I realized after fiddling with my API access code for a while that I had to narrow this project from a game-focused idea I had down to a page explorer; gertting honest with myself about the scope of the project early on was probably the best decision I made during the development of this site altogether.
+<br>
+> <sub>in a nutshell: You can still be effective with a language, even if it feels barebones/ancient/lacking in forethought; you just need to be good at understanding the "why" behind how parts of the language work, and that takes dedication to reading documentation; becoming  great at this skill ultimately leads to a workflow that dosen't require you to read the documentation as much, because you will quickly learn how to work alongside whatever programming language you are using.</sub>
 
 
 ## Referenced Materials
 **MDN**
 - [CORS Headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS/Errors/CORSMissingAllowOrigin?utm_source=devtools&utm_medium=firefox-cors-errors&utm_campaign=default)
+- [javascript async IIFEs](https://developer.mozilla.org/en-US/docs/Glossary/IIFE)
 
 **MediaWiki API**
 - [Etiquitte](https://www.mediawiki.org/wiki/API:Etiquette)
+
+**doc\.rust-lang\.org**
+- [`Future<>`, `async`, and `await`](https://doc.rust-lang.org/book/ch17-01-futures-and-syntax.html)
