@@ -5,7 +5,7 @@ async function getData(url) {
     const headers = new Headers();
     // be polite and add a user agent so Mediawiki aren't aprehensive of our
     // requests to the api
-    headers.append("User-Agent", "WikiCards/0.5 (+https://github.com/itspacrat/cis185_fall_2025/tree/main/MidtermProject; blakemichaelgaynor@gmail.com)");
+    headers.append("User-Agent", "WikiCards/0.7 (+https://github.com/itspacrat/cis185_fall_2025/tree/main/MidtermProject; blakemichaelgaynor@gmail.com)");
 
     // set up both url query strings (one for page data, one for thumbnails)
     try {
@@ -16,4 +16,12 @@ async function getData(url) {
     } catch (error) {
         console.error(error);
     }
+}
+
+/**
+ * Requests both the 
+ * @param {String} url 
+ */
+async function getBoth(url) {
+
 }
