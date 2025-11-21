@@ -1,4 +1,25 @@
 
+/**
+ * the WikiCard class holds the data for the Card element on the webpage
+ */
+class WikiCard {
+    constructor(title, imgUrl,) {
+        this.title = title;
+        this.imgUrl = imgUrl;
+    }
+
+    /**
+     * 
+     * @returns a div with 
+     */
+    createCard() {
+        let thisCard = document.createElement('div');
+
+        return thisCard;
+    }
+
+}
+
 async function getData(url) {
 
     // set these badboys up
@@ -19,9 +40,14 @@ async function getData(url) {
 }
 
 /**
- * Requests both the 
+ * Requests both the wikipedia page data and the thumbnail link(s) for a url
  * @param {String} url 
  */
 async function getBoth(url) {
+
+    let pageDataArgs = "&rvprop=content&rvslots=*"; // for page content
+    let pageImageArgs = "&prop=pageimages&piprop=thumbnail&pithumbsize=600"; // for thumbnail links
+
+
 
 }
