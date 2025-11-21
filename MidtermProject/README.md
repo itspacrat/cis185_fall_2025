@@ -1,4 +1,5 @@
-<p align="center">![transparent icon image by Blake](media/WikiCardsIcon-transparent.PNG)</p>
+![Icon image made by blake (in about 7 minutes)](https://github.com/itspacrat/cis185_fall_2025/blob/main/MidtermProject/media/WikiCardsIcon-transparent.png?raw=true)
+
 
 #  WikiCards example Wikipedia API explorer
 ## About
