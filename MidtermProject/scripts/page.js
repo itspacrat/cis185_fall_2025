@@ -10,11 +10,10 @@ class WikiCard {
 
     /**
      * 
-     * @returns a div with 
      */
     createCard() {
         let thisCard = document.createElement('div');
-
+        thiscard.append(document.createElement());
         return thisCard;
     }
 

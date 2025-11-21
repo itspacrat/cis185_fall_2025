@@ -55,6 +55,7 @@ This project serves as a fun way to look at surface-level details of wikipedia p
 
 **MediaWiki API**
 - [Etiquitte](https://www.mediawiki.org/wiki/API:Etiquette)
+- [API sandbox](https://en.wikipedia.org/wiki/Special:ApiSandbox)
 
 **jsdoc\.app**
 - [js Documentation Comments](https://jsdoc.app/about-getting-started)
