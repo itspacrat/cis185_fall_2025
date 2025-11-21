@@ -1,4 +1,4 @@
-<p align="center"><img src="media/WikiCardsIcon-transparent.PNG" alt="an enlarged, mildly off-center, transparent icon by made in roughly 7 minutes by Blake"></p>
+<p align="center">![transparent icon image by Blake](media/WikiCardsIcon-transparent.PNG)</p>
 
 #  WikiCards example Wikipedia API explorer
 ## About
