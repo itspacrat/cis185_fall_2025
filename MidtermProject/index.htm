@@ -13,29 +13,66 @@
 </head>
 
 <body>
-    <img id="changeThis">
+    <div style="justify-content:center;text-align:center;">
+        <img src="media/WikiCardsIcon-transparent.png" style="max-width:100px" />
+
+        <h1>welcome to the WikiCard explorer</h1>
+
+        <form>
+            <label>type a list of Wikipedia Titles separated by "|"...</label>
+            <input type="text" name="entry" id="batchEntryBox" placeholder="Cat|Dog|Bird|Lynx"></input>
+
+        </form><button type="button" onclick="reloadBatch()">Get Cards</button>
+
+        <div id="cardsRoot"></div>
+    </div>
+    <footer>
+        <sub>
+            <div>neither this project nor its developer are associated with MediaWiki or the WikiPedia team; all
+                rights reserved.</div>
+            <div>WikiCards icon by Blake G.</div>
+        </sub>
+    </footer>
 </body>
-<!-- script from project dir w/ function(s) defined-->
+<!-- script from project dir w/ function(s) + classes defined -->
 <script src="scripts/page.js"></script>
 <!-- inline script -->
 <script>
-    /*
-    pretty much everything needs to be executed in the below scope, 
-    as far as i can tell at least; you can't execute async code
-    in a synchronous scope, which is what this <script> tag 
-    initially uses
-    */
-    (async function () { // allow async execution
 
-        let thumbResponse = await getData("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=Ferret-badger&formatversion=2&prop=pageimages&piprop=thumbnail&pithumbsize=500&origin=*");
 
-        console.log(thumbResponse);
-        console.log(thumbResponse.query);
-        console.log(thumbResponse.query.pages["0"].thumbnail.source);
+    let batchTitles = [];
+    async function reloadBatch() {
+        /*
+        pretty much everything needs to be executed in the below scope, 
+        as far as i can tell at least; you can't execute async code
+        in a synchronous scope, which is what this <script> tag 
+        initially uses
+        */
+        (async function () { // allow async execution with an IIFE
 
-        document.getElementById("changeThis").src = thumbResponse.query.pages["0"].thumbnail.source;
+            if (document.getElementById("batchEntryBox").value == "") {
+                // Default to placeholder batch query
+                batchStr = "" + document.getElementById("batchEntryBox").placeholder;
+            } else {
+                // if thers' a batch query submitted...
+                batchStr = "" + escapeHtml(document.getElementById("batchEntryBox").value);
+            }
+            let BatchResponse = [];
+            BatchResponse = await getCards("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" + batchStr + "&formatversion=2&origin=*");
 
-    })();
+            //document.getElementById("changeThis").src = thumbResponse.query.pages["0"].thumbnail.source;
+
+            console.log("cards:");
+            console.log(BatchResponse);
+
+            BatchResponse.forEach(element => {
+                document.getElementById("cardsRoot").append(element.toCard())
+            });
+
+        })();
+    }
+    // on first load, use the placeholder text.
+    reloadBatch();
 
 </script>
 

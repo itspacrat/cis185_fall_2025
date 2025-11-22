@@ -73,7 +73,7 @@ async function getCards(batchUrl) {
     let cardElements = [];
 
     let pageDataArgs = "&rvprop=content&rvslots=*"; // for page content
-    let pageImageArgs = "&prop=pageimages&piprop=thumbnail&pithumbsize=600"; // for thumbnail link
+    let pageImageArgs = "&prop=pageimages&piprop=thumbnail&pithumbsize=500"; // for thumbnail link
 
     // can't think of a good way to get what I need in a single response, boooo!
     console.log("getting data for " + batchUrl + pageDataArgs)
