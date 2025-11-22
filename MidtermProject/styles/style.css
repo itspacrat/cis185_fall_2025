@@ -1,5 +1,5 @@
 :root {
-    --card-width: 300px;
+    --card-width: 340px;
 }
 
 body {
@@ -25,21 +25,6 @@ p {
     position: relative;
 }
 
-/* scrollbar stuff */
-div {
-    scrollbar-color: #b9a369;
-    scrollbar-track-color: #443723;
-}
-
-::-webkit-scrollbar {
-    background-color: #443723;
-    width: 3px;
-}
-
-::-webkit-scrollbar-thumb {
-    background-color: #b9a369;
-}
-
 .card {
     overflow: hidden;
     border-radius: 30px;
@@ -62,8 +47,4 @@ div {
     width: 80%;
     height: 200px;
     overflow: auto;
-}
-
-.left {
-    direction: ltr;
 }

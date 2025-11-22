@@ -28,7 +28,7 @@ class WikiCard {
         thisCard.style.backgroundImage = "url(" + this.imgUrl + ")";
         thisHeaderText.innerText = this.title;
         thisContentInfo.innerText = this.textContent;
-        thisCard.className = "card";
+        thisCard.className = "card col-lg-4 col-md-6 col-sm-12";
         thisContent.className = "cardContent";
         thisHeaderText.style.textDecoration = "underline";
         thisHeaderText.style.top = "180px";
