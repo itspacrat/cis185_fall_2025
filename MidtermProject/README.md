@@ -57,8 +57,16 @@ This project serves as a fun way to look at surface-level details of wikipedia p
 - [Etiquitte](https://www.mediawiki.org/wiki/API:Etiquette)
 - [API sandbox](https://en.wikipedia.org/wiki/Special:ApiSandbox)
 
+**W3Schools**
+- [Text input](https://www.w3schools.com/tags/tag_input.asp)
+- [Button Onclick Event](https://www.w3schools.com/jsref/event_onclick.asp)
+
+**StackOverflow**
+- [Input Sanitizing with only JS](https://stackoverflow.com/questions/1787322/what-is-the-htmlspecialchars-equivalent-in-javascript)
+
 **jsdoc\.app**
 - [js Documentation Comments](https://jsdoc.app/about-getting-started)
 
+<sub>(honorable mention)</sub>
 **doc\.rust-lang\.org**
 - [`Future<>`, `async`, and `await`](https://doc.rust-lang.org/book/ch17-01-futures-and-syntax.html)
