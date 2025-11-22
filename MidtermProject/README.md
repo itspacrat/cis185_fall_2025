@@ -62,7 +62,15 @@ This project serves as a fun way to look at surface-level details of wikipedia p
 - [Button Onclick Event](https://www.w3schools.com/jsref/event_onclick.asp)
 
 **StackOverflow**
-- [Input Sanitizing with only JS](https://stackoverflow.com/questions/1787322/what-is-the-htmlspecialchars-equivalent-in-javascript) <sub>(shoutout Ashraf Alattar's and Lars Stranger's classes for bringing up input sanitization this week)</sub>
+
+
+
+- [Input Sanitizing with only JS](https://stackoverflow.com/questions/1787322/what-is-the-htmlspecialchars-equivalent-in-javascript)
+- [Prevent implicit form submit on enter pressed](https://stackoverflow.com/questions/895171/prevent-users-from-submitting-a-form-by-hitting-enter)
+- [Only return the leading info from a wiki page](https://stackoverflow.com/questions/7185288/how-can-i-get-wikipedia-content-using-wikipedias-api)
+
+<sub>(shoutout Ashraf Alattar's and Lars Stranger's classes for bringing up input sanitization this week)</sub>
+
 
 **jsdoc\.app**
 - [js Documentation Comments](https://jsdoc.app/about-getting-started)

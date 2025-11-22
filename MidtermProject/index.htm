@@ -18,15 +18,15 @@
 
         <h1>welcome to the WikiCard explorer</h1>
 
-        <form>
-            <label>type a list of Wikipedia Titles separated by "|"...</label>
-            <input type="text" name="entry" id="batchEntryBox" placeholder="Cat|Dog|Bird|Lynx"></input>
 
-        </form><button type="button" onclick="reloadBatch()">Get Cards</button>
+        <p>type a list of Wikipedia Titles separated by "|"...</p>
+        <input type="text" name="entry" id="batchEntryBox"
+            placeholder="Rock_hyrax|Malva_neglecta|Ferret-badger"></input>
+        <button type="button" onclick="reloadBatch()">Get Cards</button>
 
         <div id="cardsRoot"></div>
     </div>
-    <footer>
+    <footer style="bottom:0;">
         <sub>
             <div>neither this project nor its developer are associated with MediaWiki or the WikiPedia team; all
                 rights reserved.</div>
@@ -39,8 +39,6 @@
 <!-- inline script -->
 <script>
 
-
-    let batchTitles = [];
     async function reloadBatch() {
         /*
         pretty much everything needs to be executed in the below scope, 
@@ -50,6 +48,9 @@
         */
         (async function () { // allow async execution with an IIFE
 
+            let newCardRoot = document.createElement('div');
+            newCardRoot.id = "cardsRoot";
+
             if (document.getElementById("batchEntryBox").value == "") {
                 // Default to placeholder batch query
                 batchStr = "" + document.getElementById("batchEntryBox").placeholder;
@@ -58,17 +59,16 @@
                 batchStr = "" + escapeHtml(document.getElementById("batchEntryBox").value);
             }
             let BatchResponse = [];
-            BatchResponse = await getCards("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=revisions&titles=" + batchStr + "&formatversion=2&origin=*");
-
-            //document.getElementById("changeThis").src = thumbResponse.query.pages["0"].thumbnail.source;
+            BatchResponse = await getCards("https://en.wikipedia.org/w/api.php?action=query&format=json&prop=extracts&exintro=1&explaintext=true&titles=" + batchStr + "&formatversion=2&origin=*");
 
             console.log("cards:");
             console.log(BatchResponse);
 
             BatchResponse.forEach(element => {
-                document.getElementById("cardsRoot").append(element.toCard())
+                newCardRoot.append(element.toCard())
             });
 
+            document.getElementById("cardsRoot").outerHTML = newCardRoot.outerHTML;
         })();
     }
     // on first load, use the placeholder text.

@@ -4,9 +4,10 @@
  * the WikiCard class holds the data for the Card element on the webpage
  */
 class WikiCard {
-    constructor(title, imgUrl,) {
+    constructor(title, imgUrl, textContent) {
         this.title = title;
         this.imgUrl = imgUrl;
+        this.textContent = textContent
     }
 
     /**
@@ -26,12 +27,14 @@ class WikiCard {
         // set all info before appending to root div
         thisCard.style.backgroundImage = "url(" + this.imgUrl + ")";
         thisHeaderText.innerText = this.title;
+        thisContentInfo.innerText = this.textContent;
         thisCard.className = "card";
         thisContent.className = "cardContent";
         thisHeaderText.style.textDecoration = "underline";
         thisHeaderText.style.top = "180px";
         thisHeaderText.style.fontSize = "17pt";
         thisContentInfo.className = "scrollable-box";
+        thisContentInfo.style.fontSize = "16pt";
 
         // glue it all together
         thisCardHeader.appendChild(thisHeaderText);
@@ -50,7 +53,7 @@ async function getData(url) {
     const headers = new Headers();
     // be polite and add a user agent so Mediawiki aren't aprehensive of our
     // requests to the api
-    headers.append("User-Agent", "WikiCards/0.9 (+https://github.com/itspacrat/cis185_fall_2025/tree/main/MidtermProject; blakemichaelgaynor@gmail.com)");
+    headers.append("User-Agent", "WikiCards/0.11 (+https://github.com/itspacrat/cis185_fall_2025/tree/main/MidtermProject; blakemichaelgaynor@gmail.com)");
 
     // set up both url query strings (one for page data, one for thumbnails)
     try {
@@ -72,8 +75,8 @@ async function getCards(batchUrl) {
     // eventually return these
     let cardElements = [];
 
-    let pageDataArgs = "&rvprop=content&rvslots=*"; // for page content
-    let pageImageArgs = "&prop=pageimages&piprop=thumbnail&pithumbsize=500"; // for thumbnail link
+    let pageDataArgs = "&rvprop=content&rvslots=*"; // for leading page content
+    let pageImageArgs = "&prop=pageimages&piprop=thumbnail&pithumbsize=300"; // for thumbnail link
 
     // can't think of a good way to get what I need in a single response, boooo!
     console.log("getting data for " + batchUrl + pageDataArgs)
@@ -93,9 +96,11 @@ async function getCards(batchUrl) {
     for (i = 0; i < count; i++) {
         let pushTitle = await pageThumbnailJSON.query.pages["" + i].title;
         let pushLink = await pageThumbnailJSON.query.pages["" + i].thumbnail.source;
+        let pushContent = await pageContentJSON.query.pages["" + i].extract;
         let pushCard = new WikiCard(
             pushTitle,
-            pushLink
+            pushLink,
+            pushContent
         );
         //pushCard.title = (await pageThumbnailJSON.query.pages["" + i]).title;
         //pushCard.imgUrl = (await pageThumbnailJSON.query.pages["" + i]).thumbnail.source;

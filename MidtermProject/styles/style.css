@@ -1,3 +1,7 @@
+:root {
+    --card-width: 300px;
+}
+
 body {
     background-color: #383838;
 }
@@ -16,7 +20,7 @@ a {
 }
 
 p {
-    font-size: 14pt;
+    font-size: 16pt;
 
     position: relative;
 }
@@ -39,9 +43,7 @@ div {
 .card {
     overflow: hidden;
     border-radius: 30px;
-    width: 500px;
-    /* from the "Ferret-badger" wikipedia page */
-    background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/3d/Melogale_moschata_%28male%29_Praha_zoo_02.2011_01.jpg");
+    width: var(--card-width);
 }
 
 .cardContent {
@@ -57,7 +59,7 @@ div {
     position: relative;
     display: inline-block;
     top: 210px;
-    width: 200px;
+    width: 80%;
     height: 200px;
     overflow: auto;
 }
