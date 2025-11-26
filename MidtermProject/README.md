@@ -3,7 +3,7 @@
 
 #  WikiCards example Wikipedia API explorer
 ## About
-This project serves as a fun way to look at surface-level details of wikipedia pages for animals.
+This project serves as a fun way to look at surface-level details of wikipedia pages.
 
 ## Usage
 > [!WARNING]
@@ -77,4 +77,5 @@ This project serves as a fun way to look at surface-level details of wikipedia p
 
 <sub>(honorable mention)</sub>
 **doc\.rust-lang\.org**
+
 - [`Future<>`, `async`, and `await`](https://doc.rust-lang.org/book/ch17-01-futures-and-syntax.html)
