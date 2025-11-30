@@ -5,11 +5,11 @@ import './App.css'
 
 
 
-function NewTask(taskName) {
+function NewTask({ taskName }) {
   return (
     <>
       <p>
-        this is a new task
+        this is a new task, titled: {taskName}
       </p>
     </>
   )
@@ -28,7 +28,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <NewTask />
+      <NewTask
+        taskName={"TaskTitle"} />
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
