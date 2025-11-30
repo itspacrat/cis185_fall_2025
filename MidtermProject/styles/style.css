@@ -28,6 +28,8 @@ p {
 .card {
     overflow: hidden;
     border-radius: 30px;
+    border-width:0px 5px 5px 2px;
+    border-color:#700031;
     width: var(--card-width);
 }
 
@@ -47,4 +49,5 @@ p {
     width: 80%;
     height: 200px;
     overflow: auto;
+
 }
