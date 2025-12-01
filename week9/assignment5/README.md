@@ -9,9 +9,15 @@ This React + Vite app is an example of the basics of defining, constructing, and
 ## Referenced materials
 
 **React\.dev**
+- [Error Boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
 - [Passing arguments/"props" to components](https://react.dev/learn/passing-props-to-a-component#step-2-read-props-inside-the-child-component)
-- [React Event Listeners + Handling Events](https://react.dev/learn#responding-to-events)
-- [The React Compiler](https://react.dev/learn/react-compiler/installation)
+- [React eventlisteners + handling events](https://react.dev/learn#responding-to-events)
 
-**(AI) Google's Gemini in-search breakdown**
+**StackOverflow**
+- [Managing state between components](https://stackoverflow.com/questions/67629110/whats-the-right-way-to-change-the-state-of-another-component-in-react)
+
+**LogRocket**
+- [React localStorage](https://blog.logrocket.com/using-localstorage-react-hooks/)
+
+**(AI) Google's Gemini / in-search responses**
 - [Dynamically adding elements](https://www.google.com/search?q=dynamically+add+elements+to+page+react+js&uact=5&oq=dynamically+add+elements+to+page+react+js)
