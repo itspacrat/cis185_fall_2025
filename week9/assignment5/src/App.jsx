@@ -5,11 +5,11 @@ import './App.css'
 
 
 
-function NewTask({ taskName, id }) {
+function NewTask({ taskName, taskID }) {
   // define state tracking for this component
   // "every NewTask is in charge of remembering its own:"
   const [title, setTitle] = useState(taskName)
-  const [taskID, setTaskID] = useState(id)
+  const [tid, setTaskID] = useState(taskID)
 
   const handleRenameTask = () => {
 
@@ -28,15 +28,31 @@ function NewTask({ taskName, id }) {
   )
 }
 
+function DynamicElements() {
+  const [items, setItems] = useState([]);
+
+  const handleAddItem = () => {
+    const newItem = `Item ${items.length + 1}`;
+    setItems([...items, newItem]);
+  };
+
+  return (
+    <div>
+      <button onClick={handleAddItem}>Add Item</button>
+      <ul>
+        {items.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function App() {
-  const [count, setCount] = useState(1)
 
   return (
     <>
-      <button onClick={() => setCount((count) => count + 1)}>Count: {count}</button>
-
-
-      <NewTask taskName={"TaskTitle"} />
+      <DynamicElements />
     </>
   )
 }
