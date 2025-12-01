@@ -1,60 +1,92 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Button, Container, Row, Col } from 'react-bootstrap';
 import './App.css'
 
-
-
-function NewTask({ taskName, taskID }) {
-  // define state tracking for this component
-  // "every NewTask is in charge of remembering its own:"
-  const [title, setTitle] = useState(taskName)
-  const [tid, setTaskID] = useState(taskID)
-
-  const handleRenameTask = () => {
-
-  }
+/**
+ * **The data for a task with its own state controllers.**
+ * @param {number} newTaskID the task's id in the list
+ * @param {string} newTaskText the task's description/goal
+ */
+function TaskData({ newTaskID, newTaskText }) {
+  // unholy/funny one-liner useState deconstructor im trying out
+  const [
+    [taskID, setTaskID],
+    [taskText, setTaskText],
+    [newTaskCompleted, setTaskCompleted],
+    [newCreatedDate /* no setter, this will not change */]
+  ] = [
+      useState(newTaskID - 0), // type annotation workaround
+      useState(newTaskText + ""), // type annotation workaround
+      useState(false),
+      useState("" + new Date())
+    ];
   return (
-    <>
-      <div class="card">
-        <span><input type="text" placeholder="rename task..."></input></span>
-        <button onclick={handleRenameTask}>Rename</button>
-        <p>
-          this is a new task, titled: {taskName}
-        </p>
-      </div>
+    <table style={{ padding: 13 + 'px', borderStyle: "solid", borderColor: "#4a967dff", borderRadius: 10 + 'px' }}>
+      <tbody>
+        <tr>
+          <td colSpan={2} style={{ textAlign: 'center', textDecoration: 'bold' }}>Task: {taskText}</td>
+          <td style={{ color: '#01dfc17a', textAlign: 'left', padding: 10 + 'px' }}>id: {taskID}</td>
+          <td rowSpan={3} style={{ borderLeft: 'dashed', paddingLeft: 13 + 'px' }}><p>done?</p><input type={"checkbox"}></input></td>
 
-    </>
-  )
-}
+        </tr>
 
-function DynamicElements() {
-  const [items, setItems] = useState([]);
+        <tr>
 
-  const handleAddItem = () => {
-    const newItem = `Item ${items.length + 1}`;
-    setItems([...items, newItem]);
-  };
-
-  return (
-    <div>
-      <button onClick={handleAddItem}>Add Item</button>
-      <ul>
-        {items.map((item, index) => (
-          <li key={index}>{item}</li>
-        ))}
-      </ul>
-    </div>
+        </tr>
+        <tr><td colSpan={2} style={{ color: '#ffffff7a' }}>created: {newCreatedDate}</td></tr>
+      </tbody>
+    </table >
   );
 }
 
-function App() {
+/**
+ * The tasks list on the main app page
+ * @returns JSX.Element
+ */
+function TasksRoot() {
+  const [tasks, setTasks] = useState([]);
+  const [nextTaskText, setNextTaskText] = useState("no description set");
+  const [taskCount, setTaskCount] = useState(0)
+
+  // update new task text on input box changed
+  const handleSetNextTaskText = (event) => {
+    console.log("handleSetNextTaskText event value: " + event.target.value)
+    setNextTaskText(event.target.value)
+    console.log("new task text: " + nextTaskText)
+  }
+
+  // add a new task to the list
+  const handleAddItem = () => {
+    const newTask = <TaskData taskText={nextTaskText} taskID={taskCount} />;
+    setTasks([...tasks, newTask]);
+    setTaskCount(taskCount + 1);
+  };
 
   return (
     <>
-      <DynamicElements />
+      <div><input type={"text"} placeholder={"new task description..."} onChange={handleSetNextTaskText}></input></div>
+      <button onClick={handleAddItem}>Add Task</button>
+
+      <ul>
+        {tasks.map((item, index) => (
+          <li key={index} style={{ margin: 10 + 'px' }}>{item}</li>
+        ))}
+      </ul>
+
+
+    </>
+  );
+}
+
+// turns out you can use export default in the signiature of your 
+// export default functions instead of declaring it underneath
+export default function App() {
+
+  return (
+    <>
+      <h1>Task Dashboard</h1>
+
+      <TasksRoot />
     </>
   )
 }
-
-export default App
