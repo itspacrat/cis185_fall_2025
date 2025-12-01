@@ -7,7 +7,11 @@ This React + Vite app is an example of the basics of defining, constructing, and
 > 🛠️ section under construction! 🛠️
 
 ## Referenced materials
+
 **React\.dev**
 - [Passing arguments/"props" to components](https://react.dev/learn/passing-props-to-a-component#step-2-read-props-inside-the-child-component)
 - [React Event Listeners + Handling Events](https://react.dev/learn#responding-to-events)
 - [The React Compiler](https://react.dev/learn/react-compiler/installation)
+
+**(AI) Google's Gemini in-search breakdown**
+- [Dynamically adding elements](https://www.google.com/search?q=dynamically+add+elements+to+page+react+js&uact=5&oq=dynamically+add+elements+to+page+react+js)
