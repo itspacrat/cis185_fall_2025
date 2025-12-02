@@ -40,34 +40,6 @@ function TaskData({ newTaskID, newTaskText }) {
 }
 
 
-function TasksRoot() {
-  const [tasks, setTasks] = useState([]);
-  // const [nextTaskText, setNextTaskText] = useState("no description set");
-  // const [taskCount, setTaskCount] = useState(0)
-
-  // // update the next new task text on input box changed
-  // const handleSetNextTaskText = (e) => {
-  //   { // make sure this runs before we log?
-  //     console.log("handleSetNextTaskText event value: " + e.target.value);
-  //     setNextTaskText(e.target.value);
-  //   }
-  //   console.log("new task text: " + nextTaskText);
-  // }
-
-  // /** add a new task to the list of tasks */
-  // const handleAddItem = () => {
-  //   const newTask = <TaskData taskText={nextTaskText} taskID={taskCount} />;
-  //   setTasks([...tasks, newTask]);
-  //   setTaskCount(taskCount + 1);
-  // };
-
-  return (
-    <>
-      
-    </>
-  );
-}
-
 /* TODO: use these in the DOM */
 // figure out some way to store these in userProfiles when calling the main component for APP 
 // unsuure of what to do here, but i have the idea for state management
@@ -85,12 +57,12 @@ function User() {
 }
 /**
  * A profile consists of a user and their tasks
- * @param {User} newUser
+ * @param {string} newUser
  * @returns \<UserProfile />
  */
 function UserProfile({ newUser }) {
-  const [user, setUser] = useState(newUser) // should be a  <User newUserName={} />
-  console.log("new user: " + user.userName)
+  const [user, setUser] = useState(newUser + "")
+  console.log("new user: " + user)
   const [tasks, setTasks] = useState([])
   const [nextTaskText, setNextTaskText] = useState("no description set");
   const [taskCount, setTaskCount] = useState(0)
@@ -118,7 +90,7 @@ function UserProfile({ newUser }) {
   }
   return (
     <>
-    <h5>{ user.userName }</h5>
+    <h5>{ user }</h5>
     <input type={"text"} placeholder={"new task description..."} onChange={handleSetNextTaskText}></input>
       <button onClick={handleAddItem}>Add Task</button>
 
@@ -136,8 +108,7 @@ export default function App() {
 
   // default user data setup
   const defaultUserName = "Alice";
-  const defaultUser = <User userName={defaultUserName} />;
-  const defaultUserProfile = <UserProfile newUser={defaultUser} />
+  const defaultUserProfile = <UserProfile newUser={defaultUserName} />
 
   //* 
   // Utilize a dictionary to store user profiles for 
