@@ -46,50 +46,54 @@ function TaskData({ newTaskID, newTaskText }) {
   );
 }
 
-/**
- * The tasks list on the main app page
- * @returns JSX.Element
- */
-function TasksRoot() {
-  const [tasks, setTasks] = useState([]);
-  const [nextTaskText, setNextTaskText] = useState("no description set");
-  const [taskCount, setTaskCount] = useState(0)
 
-  // update new task text on input box changed
-  const handleSetNextTaskText = (event) => {
-    console.log("handleSetNextTaskText event value: " + event.target.value)
-    setNextTaskText(event.target.value)
-    console.log("new task text: " + nextTaskText)
-  }
+// function TasksRoot() {
+//   const [tasks, setTasks] = useState([]);
+//   const [nextTaskText, setNextTaskText] = useState("no description set");
+//   const [taskCount, setTaskCount] = useState(0)
 
-  /** add a new task to the list of tasks */
-  const handleAddItem = () => {
-    const newTask = <TaskData taskText={nextTaskText} taskID={taskCount} />;
-    setTasks([...tasks, newTask]);
-    setTaskCount(taskCount + 1);
-  };
+//   // update the next new task text on input box changed
+//   const handleSetNextTaskText = (e) => {
+//     { // make sure this runs before we log?
+//       console.log("handleSetNextTaskText event value: " + e.target.value);
+//       setNextTaskText(e.target.value);
+//     }
+//     console.log("new task text: " + nextTaskText);
+//   }
 
-  return (
-    <>
-      <input type={"text"} placeholder={"new task description..."} onChange={handleSetNextTaskText}></input>
-      <button onClick={handleAddItem}>Add Task</button>
+//   /** add a new task to the list of tasks */
+//   const handleAddItem = () => {
+//     const newTask = <TaskData taskText={nextTaskText} taskID={taskCount} />;
+//     setTasks([...tasks, newTask]);
+//     setTaskCount(taskCount + 1);
+//   };
 
-
-      {tasks.map((item, index) => (
-        <div key={index} style={{ margin: 10 + 'px' }}>{item}</div>
-      ))}
+//   return (
+//     <>
+//       <input type={"text"} placeholder={"new task description..."} onChange={handleSetNextTaskText}></input>
+//       <button onClick={handleAddItem}>Add Task</button>
 
 
+//       {tasks.map((item, index) => (
+//         <div key={index} style={{ margin: 10 + 'px' }}>{item}</div>
+//       ))}
 
-    </>
-  );
-}
+
+
+//     </>
+//   );
+// }
 
 // turns out you can use export default in the signiature of your 
 // export default functions instead of declaring it underneath
 export default function App() {
 
-  const [] = useState([])
+  // start with user Alice always
+  const defaultUser = <User newUserName={"Alice"} />;
+  const [userProfiles, setUserProfiles] = useState([
+    // default user "Alice" profile first
+    <UserProfile newUser={defaultUser} />
+  ]);
 
   return (
     <>
