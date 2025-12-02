@@ -10,41 +10,41 @@ function UserProfile({ newUser }) {
   const [user, setUser] = useState(newUser)
   const [userTasks, setUserTasks] = useState([])
 }
-/**
- * **The data for a task with its own state controllers.**
- * @param {number} newTaskID the task's id in the list
- * @param {string} newTaskText the task's description/goal
- */
-function TaskData({ newTaskID, newTaskText }) {
-  // unholy/funny one-liner useState deconstructor im trying out
-  const [
-    [taskID, setTaskID],
-    [taskText, setTaskText],
-    [newTaskCompleted, setTaskCompleted],
-    [newCreatedDate /* no setter, this will not change */]
-  ] = [
-      useState(newTaskID - 0), // type annotation workaround
-      useState(newTaskText + ""), // type annotation workaround
-      useState(false),
-      useState("" + new Date())
-    ];
-  return (
-    <table style={{ padding: 13 + 'px', borderStyle: "solid", borderColor: "#4a967dff", borderRadius: 10 + 'px' }}>
-      <tbody>
-        <tr>
-          <td colSpan={2} rowSpan={2} style={{ textAlign: 'center', textDecoration: 'bold' }}>Task: {taskText}</td>
-          <td style={{ color: '#01dfc17a', textAlign: 'right', padding: 10 + 'px' }}>id: {taskID}</td>
-          <td rowSpan={3} style={{ borderLeft: 'dashed', paddingLeft: 13 + 'px' }}><p>done?</p><input type={"checkbox"}></input></td>
+// /**
+//  * **The data for a task with its own state controllers.**
+//  * @param {number} newTaskID the task's id in the list
+//  * @param {string} newTaskText the task's description/goal
+//  */
+// function TaskData({ newTaskID, newTaskText }) {
+//   // unholy/funny one-liner useState deconstructor im trying out
+//   const [
+//     [taskID, setTaskID],
+//     [taskText, setTaskText],
+//     [newTaskCompleted, setTaskCompleted],
+//     [newCreatedDate /* no setter, this will not change */]
+//   ] = [
+//       useState(newTaskID - 0), // type annotation workaround
+//       useState(newTaskText + ""), // type annotation workaround
+//       useState(false),
+//       useState("" + new Date())
+//     ];
+//   return (
+//     <table style={{ padding: 13 + 'px', borderStyle: "solid", borderColor: "#4a967dff", borderRadius: 10 + 'px' }}>
+//       <tbody>
+//         <tr>
+//           <td colSpan={2} rowSpan={2} style={{ textAlign: 'center', textDecoration: 'bold' }}>Task: {taskText}</td>
+//           <td style={{ color: '#01dfc17a', textAlign: 'right', padding: 10 + 'px' }}>id: {taskID}</td>
+//           <td rowSpan={3} style={{ borderLeft: 'dashed', paddingLeft: 13 + 'px' }}><p>done?</p><input type={"checkbox"}></input></td>
 
-        </tr>
-        <tr>
+//         </tr>
+//         <tr>
 
-        </tr>
-        <tr><td colSpan={2} style={{ color: '#ffffff7a' }}>created: {newCreatedDate}</td></tr>
-      </tbody>
-    </table >
-  );
-}
+//         </tr>
+//         <tr><td colSpan={2} style={{ color: '#ffffff7a' }}>created: {newCreatedDate}</td></tr>
+//       </tbody>
+//     </table >
+//   );
+// }
 
 
 // function TasksRoot() {
