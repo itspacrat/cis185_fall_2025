@@ -16,7 +16,8 @@ npm run dev
 
 ## Process
 ### Wireframing
-<img src="https://raw.githubusercontent.com/itspacrat/cis185_fall_2025/refs/heads/main/week9/outlines/component_wireframe.JPG"> <img src="https://raw.githubusercontent.com/itspacrat/cis185_fall_2025/refs/heads/main/week9/outlines/visual_wireframe.JPG">
+<img width="450px" src="https://raw.githubusercontent.com/itspacrat/cis185_fall_2025/refs/heads/main/week9/outlines/component_wireframe.JPG">
+<img width="450px" src="https://raw.githubusercontent.com/itspacrat/cis185_fall_2025/refs/heads/main/week9/outlines/visual_wireframe.JPG">
 
 ## Referenced materials
 
