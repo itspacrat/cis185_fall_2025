@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import './App.css'
 
@@ -42,6 +42,56 @@ function TaskData({ newTaskID, newTaskText }) {
 
 function TasksRoot() {
   const [tasks, setTasks] = useState([]);
+  // const [nextTaskText, setNextTaskText] = useState("no description set");
+  // const [taskCount, setTaskCount] = useState(0)
+
+  // // update the next new task text on input box changed
+  // const handleSetNextTaskText = (e) => {
+  //   { // make sure this runs before we log?
+  //     console.log("handleSetNextTaskText event value: " + e.target.value);
+  //     setNextTaskText(e.target.value);
+  //   }
+  //   console.log("new task text: " + nextTaskText);
+  // }
+
+  // /** add a new task to the list of tasks */
+  // const handleAddItem = () => {
+  //   const newTask = <TaskData taskText={nextTaskText} taskID={taskCount} />;
+  //   setTasks([...tasks, newTask]);
+  //   setTaskCount(taskCount + 1);
+  // };
+
+  return (
+    <>
+      
+    </>
+  );
+}
+
+/* TODO: use these in the DOM */
+// figure out some way to store these in userProfiles when calling the main component for APP 
+// unsuure of what to do here, but i have the idea for state management
+/**
+ * A user consists of their user name
+ * @param {string} newUserName
+ * @returns \<User />
+ */
+function User() {
+  const [userName, setUserName] = useState("");
+  console.log("passed name is " + userName)
+  return (
+    <h5>user: {userName}</h5>
+  );
+}
+/**
+ * A profile consists of a user and their tasks
+ * @param {User} newUser
+ * @returns \<UserProfile />
+ */
+function UserProfile({ newUser }) {
+  const [user, setUser] = useState(newUser) // should be a  <User newUserName={} />
+  console.log("new user: " + user.userName)
+  const [tasks, setTasks] = useState([])
   const [nextTaskText, setNextTaskText] = useState("no description set");
   const [taskCount, setTaskCount] = useState(0)
 
@@ -60,32 +110,23 @@ function TasksRoot() {
     setTasks([...tasks, newTask]);
     setTaskCount(taskCount + 1);
   };
-
+  /*
+    === COMPONENT METHODS ===
+  */
+  const handleAddUserTask = () => {
+    /* re-set user tasks */
+  }
   return (
     <>
-      <input type={"text"} placeholder={"new task description..."} onChange={handleSetNextTaskText}></input>
+    <h5>{ user.userName }</h5>
+    <input type={"text"} placeholder={"new task description..."} onChange={handleSetNextTaskText}></input>
       <button onClick={handleAddItem}>Add Task</button>
 
 
       {tasks.map((item, index) => (
         <div key={index} style={{ margin: 10 + 'px' }} className='md-col-4'>{item}</div>
       ))}
-    </>
-  );
-}
-
-/* TODO: use these in the DOM */
-// figure out some way to store these in userProfiles when calling the main component for APP 
-// unsuure of what to do here, but i have the idea for state management 
-function User({ newUserName }) {
-  const [userName, setUserName] = useState(newUserName + "");
-}
-function UserProfile({ newUser }) {
-  const [user, setUser] = useState(newUser) // should be a  <User newUserName={} />
-  const [userTasks, setUserTasks] = useState([])
-
-  return (
-    <p>{user.userName}</p>
+      </>
   );
 }
 
@@ -94,22 +135,32 @@ function UserProfile({ newUser }) {
 export default function App() {
 
   // default user data setup
-  const defaultUserComponent = <User newUserName={"Alice"} />;
+  const defaultUserName = "Alice";
+  const defaultUser = <User userName={defaultUserName} />;
+  const defaultUserProfile = <UserProfile newUser={defaultUser} />
 
   //* 
-  // Utilize a dictionary to store user profiles for easier switching logic
+  // Utilize a dictionary to store user profiles for 
+  // easier switching logic
   const [userProfiles, setUserProfiles] = useState({
     // default user "Alice" profile first
-    "Alice": <UserProfile newUser={defaultUserComponent} />
+    "Alice": defaultUserProfile
   });
+
   const [currentUser, setCurrentUser] = useState("Alice")
 
+  const handleAddProfile = () => {
+    setUserProfiles([...userProfiles,]);
+    console.log("added user profile");
+  }
   return (
     <>
       <h1>Task Dashboard</h1>
-
-      {userProfiles.Alice}
-
+      <div id={"profileRoot"}>
+        {Object.keys(userProfiles).map((profileName) => (
+          <div key={profileName}>{userProfiles["Alice"]}</div>
+        ))}
+      </div>
     </>
   )
 }
