@@ -81,8 +81,12 @@ function User({ newUserName }) {
   const [userName, setUserName] = useState(newUserName + "");
 }
 function UserProfile({ newUser }) {
-  const [user, setUser] = useState(newUser)
+  const [user, setUser] = useState(newUser) // should be a  <User newUserName={} />
   const [userTasks, setUserTasks] = useState([])
+
+  return (
+    <p>{user.userName}</p>
+  );
 }
 
 // turns out you can use export default in the signiature of your 
@@ -104,7 +108,7 @@ export default function App() {
     <>
       <h1>Task Dashboard</h1>
 
-      <script>userProfiles.get("Alice")</script>
+      {userProfiles.Alice}
 
     </>
   )
