@@ -2,6 +2,13 @@ import { useState } from 'react'
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import './App.css'
 
+
+function User() {
+  const [userName, setUserName] = useState("");
+}
+function UserProfile() {
+  const [user, setUser] = useState()
+}
 /**
  * **The data for a task with its own state controllers.**
  * @param {number} newTaskID the task's id in the list
@@ -24,12 +31,11 @@ function TaskData({ newTaskID, newTaskText }) {
     <table style={{ padding: 13 + 'px', borderStyle: "solid", borderColor: "#4a967dff", borderRadius: 10 + 'px' }}>
       <tbody>
         <tr>
-          <td colSpan={2} style={{ textAlign: 'center', textDecoration: 'bold' }}>Task: {taskText}</td>
-          <td style={{ color: '#01dfc17a', textAlign: 'left', padding: 10 + 'px' }}>id: {taskID}</td>
+          <td colSpan={2} rowSpan={2} style={{ textAlign: 'center', textDecoration: 'bold' }}>Task: {taskText}</td>
+          <td style={{ color: '#01dfc17a', textAlign: 'right', padding: 10 + 'px' }}>id: {taskID}</td>
           <td rowSpan={3} style={{ borderLeft: 'dashed', paddingLeft: 13 + 'px' }}><p>done?</p><input type={"checkbox"}></input></td>
 
         </tr>
-
         <tr>
 
         </tr>
@@ -55,7 +61,7 @@ function TasksRoot() {
     console.log("new task text: " + nextTaskText)
   }
 
-  // add a new task to the list
+  /** add a new task to the list of tasks */
   const handleAddItem = () => {
     const newTask = <TaskData taskText={nextTaskText} taskID={taskCount} />;
     setTasks([...tasks, newTask]);
@@ -64,7 +70,7 @@ function TasksRoot() {
 
   return (
     <>
-      <div><input type={"text"} placeholder={"new task description..."} onChange={handleSetNextTaskText}></input></div>
+      <input type={"text"} placeholder={"new task description..."} onChange={handleSetNextTaskText}></input>
       <button onClick={handleAddItem}>Add Task</button>
 
       <ul>
@@ -81,6 +87,8 @@ function TasksRoot() {
 // turns out you can use export default in the signiature of your 
 // export default functions instead of declaring it underneath
 export default function App() {
+
+  const [] = useState([])
 
   return (
     <>
