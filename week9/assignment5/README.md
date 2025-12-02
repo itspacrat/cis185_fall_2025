@@ -3,7 +3,16 @@
 This React + Vite app is an example of the basics of defining, constructing, and calling components, as well as handling page state in a web application.
 
 ## Usage
+```zsh
+# navigate to this repo's week9/assignment5 directory
+cd /path/to/repo/week9/assignment5
 
+# install dependencies
+npm install vite react-bootstrap bootstrap
+
+# locally host the project with `npm run`
+npm run dev
+```
 
 ## Referenced materials
 
