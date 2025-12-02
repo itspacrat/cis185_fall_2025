@@ -2,12 +2,13 @@ import { useState } from 'react'
 import { Button, Container, Row, Col } from 'react-bootstrap';
 import './App.css'
 
-
-function User() {
-  const [userName, setUserName] = useState("");
+/* TODO: use these in the DOM */
+function User({ newUserName }) {
+  const [userName, setUserName] = useState(newUserName + "");
 }
-function UserProfile() {
-  const [user, setUser] = useState()
+function UserProfile({ newUser }) {
+  const [user, setUser] = useState(newUser)
+  const [userTasks, setUserTasks] = useState([])
 }
 /**
  * **The data for a task with its own state controllers.**
@@ -73,11 +74,11 @@ function TasksRoot() {
       <input type={"text"} placeholder={"new task description..."} onChange={handleSetNextTaskText}></input>
       <button onClick={handleAddItem}>Add Task</button>
 
-      <ul>
-        {tasks.map((item, index) => (
-          <li key={index} style={{ margin: 10 + 'px' }}>{item}</li>
-        ))}
-      </ul>
+
+      {tasks.map((item, index) => (
+        <div key={index} style={{ margin: 10 + 'px' }}>{item}</div>
+      ))}
+
 
 
     </>
