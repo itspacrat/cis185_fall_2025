@@ -22,15 +22,11 @@ class UserTaskData {
 }
 /**
  * **The data for a task with its own state controllers.**
- * @param {number} newTaskID the task's id in the list
- * @param {string} newTaskText the task's description/goal
+ * @param {UserTaskData} newTaskData the UserTaskData with this task's information
  */
-function Task({ newTaskID, newTaskText }) {
+function Task({ newTaskData }) {
 
-  const [taskID, setTaskID] = useState(newTaskID - 0);
-  const [taskText, setTaskText] = useState(newTaskText + "");
-  const [newTaskCompleted, setTaskCompleted] = useState(false);
-  const [newCreatedDate /* no setter, this will not change */] = useState((new Date()).toDateString);
+  const [taskData, setTaskData] = useState(newTaskData);
   return (
     <table
       style={{

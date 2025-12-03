@@ -23,6 +23,7 @@ npm run dev
 ## Referenced materials
 
 **React\.dev**
+- [Updating objects in state](https://react.dev/learn/updating-objects-in-state)
 - [Error Boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
 - [Passing arguments/"props" to components](https://react.dev/learn/passing-props-to-a-component#step-2-read-props-inside-the-child-component)
 - [React eventlisteners + handling events](https://react.dev/learn#responding-to-events)
