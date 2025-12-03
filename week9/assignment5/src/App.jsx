@@ -200,18 +200,16 @@ function UserProfilesSelector() {
 // export default functions instead of declaring it underneath
 export default function App() {
   // default user data setup
-  const defaultUserName = "Alice";
-  const defaultUserProfile = <UserProfile newUser={defaultUserName} />;
+  const [currentUser, setCurrentUser] = useState("Alice");
+  const defaultUserProfile = <UserProfile newUser={currentUser} />;
 
   //*
   // Utilize a dictionary to store user profiles for
   // easier switching logic
   const [userProfiles, setUserProfiles] = useState({
     // default user "Alice" profile first
-    Alice: defaultUserProfile,
+    "Alice": defaultUserProfile,
   });
-
-  const [currentUser, setCurrentUser] = useState("Alice");
 
   const handleAddProfile = () => {
     setUserProfiles([...userProfiles]);
