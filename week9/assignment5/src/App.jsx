@@ -148,9 +148,11 @@ function UserProfile({ newUser }) {
 
   /** add a new task to the list of tasks */
   const handleAddItem = () => {
-    const newTask = <Task taskText={nextTaskText} taskID={taskCount} />;
+    const newTask = new UserTaskData(nextTaskText, taskCount);
     setTasks([...tasks, newTask]);
+    console.log("created task: " + taskCount);
     setTaskCount(taskCount + 1);
+    console.log("next task will be: " + taskCount);
   };
   /*
     === COMPONENT METHODS ===
@@ -178,7 +180,11 @@ function UserProfile({ newUser }) {
 }
 
 function UserProfilesSelector() {
-  const [profiles, setProfiles] = useState([]);
+  // another really silly multi-deconstructor for useState()s
+  const [[profiles, setProfiles], [currentProfile, setCurrentProfile]] = [
+    useState([]),
+    useState(""),
+  ];
 
   return (
     <form style={{ top: 5 + "px", right: 5 + "px", position: "fixed" }}>
