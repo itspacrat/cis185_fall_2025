@@ -18,7 +18,7 @@ npm run dev
 ### Wireframing
 <img width="450px" src="https://raw.githubusercontent.com/itspacrat/cis185_fall_2025/refs/heads/main/week9/outlines/component_wireframe.JPG">
 <img width="450px" src="https://raw.githubusercontent.com/itspacrat/cis185_fall_2025/refs/heads/main/week9/outlines/visual_wireframe.JPG">
-<img width="600px" src="https://raw.githubusercontent.com/itspacrat/cis185_fall_2025/refs/heads/main/week9/outlines/updated-data_wireframe_compressed.JPG">
+<img width="600px" src="https://github.com/itspacrat/cis185_fall_2025/blob/main/week9/outlines/updated-data_wireframe_compressed.jpg">
 
 ## Referenced materials
 
