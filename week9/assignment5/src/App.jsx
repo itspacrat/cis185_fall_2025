@@ -33,11 +33,11 @@ function Task({ newTaskID, newTaskText }) {
     [newTaskCompleted, setTaskCompleted],
     [newCreatedDate /* no setter, this will not change */],
   ] = [
-    useState(newTaskID - 0), // type annotation workaround
-    useState(newTaskText + ""), // type annotation workaround
-    useState(false),
-    useState("" + new Date()),
-  ];
+      useState(newTaskID - 0), // type annotation workaround
+      useState(newTaskText + ""), // type annotation workaround
+      useState(false),
+      useState("" + new Date()),
+    ];
   return (
     <table
       style={{
@@ -158,7 +158,7 @@ function UserProfile({ newUser }) {
     === COMPONENT METHODS ===
   */
   const handleAddUserTask = () => {
-    /* re-set user tasks */
+    /* re-set user tasks with new task here */
   };
   return (
     <>
@@ -181,14 +181,12 @@ function UserProfile({ newUser }) {
 
 function UserProfilesSelector() {
   // another really silly multi-deconstructor for useState()s
-  const [[profiles, setProfiles], [currentProfile, setCurrentProfile]] = [
-    useState([]),
-    useState(""),
-  ];
+  const [profiles, setProfiles] = useState([]);
+  const [currentProfile, setCurrentProfile] = useState("");
 
   return (
     <form style={{ top: 5 + "px", right: 5 + "px", position: "fixed" }}>
-      <label for={"profileSelector"}>Select profile...</label>
+      <label htmlFor={"profileSelector"}>Select profile...</label>
       <br />
       <select name={"profileSelector"} id={"profilesDropdown"}>
         <option value={"user1"}>user1</option>
