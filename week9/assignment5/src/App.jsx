@@ -26,18 +26,11 @@ class UserTaskData {
  * @param {string} newTaskText the task's description/goal
  */
 function Task({ newTaskID, newTaskText }) {
-  // unholy/funny one-liner useState deconstructor im trying out
-  const [
-    [taskID, setTaskID],
-    [taskText, setTaskText],
-    [newTaskCompleted, setTaskCompleted],
-    [newCreatedDate /* no setter, this will not change */],
-  ] = [
-      useState(newTaskID - 0), // type annotation workaround
-      useState(newTaskText + ""), // type annotation workaround
-      useState(false),
-      useState("" + new Date()),
-    ];
+
+  const [taskID, setTaskID] = useState(newTaskID - 0);
+  const [taskText, setTaskText] = useState(newTaskText + "");
+  const [newTaskCompleted, setTaskCompleted] = useState(false);
+  const [newCreatedDate /* no setter, this will not change */] = useState((new Date()).toDateString);
   return (
     <table
       style={{
@@ -146,8 +139,10 @@ function UserProfile({ newUser }) {
     console.log("new task text: " + nextTaskText);
   };
 
-  /** add a new task to the list of tasks */
-  const handleAddItem = () => {
+  /**
+   * set the tasks array to include the newly added task.
+   */
+  const handleAddTask = () => {
     const newTask = new UserTaskData(nextTaskText, taskCount);
     setTasks([...tasks, newTask]);
     console.log("created task: " + taskCount);
@@ -168,19 +163,18 @@ function UserProfile({ newUser }) {
         placeholder={"new task description..."}
         onChange={handleSetNextTaskText}
       />
-      <button onClick={handleAddItem}>Add Task</button>
+      <button onClick={handleAddTask}>Add Task</button>
 
       {tasks.map((item, index) => (
-        <div key={index} style={{ margin: 10 + "px" }} className="md-col-4">
+        <Container key={index} style={{ margin: 10 + "px" }} className="md-col-4">
           {item}
-        </div>
+        </Container>
       ))}
     </>
   );
 }
 
 function UserProfilesSelector() {
-  // another really silly multi-deconstructor for useState()s
   const [profiles, setProfiles] = useState([]);
   const [currentProfile, setCurrentProfile] = useState("");
 
