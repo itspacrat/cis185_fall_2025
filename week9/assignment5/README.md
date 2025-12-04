@@ -1,6 +1,20 @@
 # Assignment 5 - React Application
 ## About
+### Description
 This React + Vite app is an example of the basics of defining, constructing, and calling components, as well as handling page state in a web application.
+
+### Goals
+**Users**
+- allow for creation and deletion of user profiles
+- allow for switching between profiles
+
+**Tasks**
+- Allow for adding a list of tasks to each User's profile
+- Allow for the updating and deleting of tasks from each profile
+
+**Storage**
+- Allow for loading a list of profiles + tasks from local storage
+- Allow for saving the current set of profiles + tasks to local storage
 
 ## Usage
 ```zsh
@@ -30,8 +44,8 @@ Below are some visual wireframes for the profile data structure:
 **React\.dev**
 - [Updating objects in state](https://react.dev/learn/updating-objects-in-state)
 - [React eventlisteners + handling events](https://react.dev/learn#responding-to-events)
-- [Error Boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)
-- [Passing arguments/"props" to components](https://react.dev/learn/passing-props-to-a-component#step-2-read-props-inside-the-child-component)
+- [Error Boundaries](https://react.dev/reference/react/Component#catching-rendering-errors-with-an-error-boundary)<br>*<sub>I didn't end up using this, but knowing error handling technique is always useful so i kept it in.</sub>*
+- [Passing arguments/"props" to components](https://react.dev/learn/passing-props-to-a-component#step-2-read-props-inside-the-child-component) <br> *<sub>this one was due to a mishap in my data design, but i thought it was a helpful deep dive to include.</sub>*
 
 **W3Schools**
 - [JS Spread (...) operator](https://www.w3schools.com/react/react_es6_spread.asp)
