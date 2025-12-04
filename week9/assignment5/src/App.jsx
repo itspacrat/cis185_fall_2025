@@ -59,7 +59,7 @@ function Task({ newTaskData }) {
               padding: 10 + "px",
             }}
           >
-            id: {taskID}
+            id: {taskData.id}
           </td>
           <td
             rowSpan={3}
@@ -72,7 +72,7 @@ function Task({ newTaskData }) {
         <tr></tr>
         <tr>
           <td colSpan={2} style={{ color: "#ffffff7a" }}>
-            created: {newCreatedDate}
+            created: {taskData.createdAt}
           </td>
         </tr>
       </tbody>
@@ -118,59 +118,60 @@ class UserProfileData {
  *
  * return this up to the DOM for rendering.
  * @param {string} newUser the name of the new user to create a profile for
- * @returns vDOM fragment
  */
 function UserProfile({ newUser }) {
+  const newProfile = new UserProfileData(newUser);
   /*
      === State Management Consts ===
   */
-  const [data, setData] = useState(new UserProfileData(newUser));
-  const [tasks, setTasks] = useState([]);
+  const name = newProfile.name;
+  const [tasks, setTasks] = useState(newProfile.tasks);
+  const [completeTasks, setCompleteTasks] = useState();
   const [nextTaskText, setNextTaskText] = useState("no description set");
   const [taskCount, setTaskCount] = useState(0);
 
   // debugs
-  console.log("new user: " + data.name);
+  console.log("new user: " + name);
 
   // update the next new task text on input box changed
   const handleSetNextTaskText = (e) => {
-    {
-      // make sure this runs before we log?
-      console.log("handleSetNextTaskText event value: " + e.target.value);
-      setNextTaskText(e.target.value);
-    }
-    console.log("new task text: " + nextTaskText);
+    console.log(e.target.value)
+    setNextTaskText(e.target.value)
   };
 
+  /*
+    === COMPONENT METHODS + UPDATE HANDLERS ===
+  */
   /**
    * set the tasks array to include the newly added task.
    */
   const handleAddTask = () => {
     const newTask = new UserTaskData(nextTaskText, taskCount);
-    setTasks([...tasks, newTask]);
-    console.log("created task: " + taskCount);
+    setTasks([
+      ...tasks,
+      newTask.description,
+      newTask.complete,
+      newTask.createdAt.toDateString,
+      newTask.complete
+    ]);
     setTaskCount(taskCount + 1);
-    console.log("next task will be: " + taskCount);
   };
-  /*
-    === COMPONENT METHODS ===
-  */
-  const handleAddUserTask = () => {
-    /* re-set user tasks with new task here */
-  };
+
+
   return (
     <>
-      <h5>{data.name}</h5>
+      <h5>{name}</h5>
       <input
         type={"text"}
         placeholder={"new task description..."}
-        onChange={handleSetNextTaskText}
+        onBlur={handleSetNextTaskText} // when we de-focus, emit event
       />
       <button onClick={handleAddTask}>Add Task</button>
 
       {tasks.map((item, index) => (
+
         <Container key={index} style={{ margin: 10 + "px" }} className="md-col-4">
-          {item}
+
         </Container>
       ))}
     </>
