@@ -178,9 +178,14 @@ function UserProfile({ newUser }) {
   );
 }
 
-function UserProfilesSelector() {
+function UserProfilesSelector({ firstUser }) {
   const [profiles, setProfiles] = useState([]);
   const [currentProfile, setCurrentProfile] = useState("");
+
+  const handleAddProfile = () => {
+    setUserProfiles([...userProfiles]);
+    console.log("added user profile");
+  };
 
   return (
     <form style={{ top: 5 + "px", right: 5 + "px", position: "fixed" }}>
@@ -209,10 +214,7 @@ export default function App() {
     "Alice": defaultUserProfile,
   });
 
-  const handleAddProfile = () => {
-    setUserProfiles([...userProfiles]);
-    console.log("added user profile");
-  };
+
   return (
     <>
       <UserProfilesSelector />
