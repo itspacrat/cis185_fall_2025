@@ -27,6 +27,13 @@ class UserTaskData {
 function Task({ newTaskData }) {
 
   const [taskData, setTaskData] = useState(newTaskData);
+
+  const handleSetTaskComplete = () => {
+    setTaskData({
+      complete: true,
+      ...newTaskData // handy spread operator
+    })
+  }
   return (
     <table
       style={{
@@ -43,7 +50,7 @@ function Task({ newTaskData }) {
             rowSpan={2}
             style={{ textAlign: "center", textDecoration: "bold" }}
           >
-            Task: {taskText}
+            Task: {taskData.description}
           </td>
           <td
             style={{
